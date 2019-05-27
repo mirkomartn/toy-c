@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 
 #define WORD 64 // in addition to this, the number in the scanf() call in the get_word function needs to be changed as well
 #define TRUE 1
@@ -19,6 +20,7 @@ typedef struct linked_list {
 int get_word(list_t *root);
 void print_words(list_t *root);
 void free_mem(list_t *node);
+void check_ptr(list_t *ptr);
 
 
 int main(void) {
@@ -63,10 +65,23 @@ int get_word(list_t *root) {
 
 	// create a new node in the linked list, store the scanned word, and increment the counter
     node->next = (list_t *) malloc(sizeof(list_t));
+    check_ptr(node->next);
     node->next->next = NULL;
     strcpy(node->myword, word);
 
 	return TRUE;
+}
+
+/****
+	FUNCTION: void check_ptr(list_t *ptr);
+	RETURNS: /
+	SIDE-EFFECTS: Checks if malloc() failed to allocate requested space. If so, terminates the program with a designated error code.
+ ****/
+void check_ptr(list_t *ptr) {
+	if (ptr == NULL) {
+		printf("Error, not enough memory. Exiting the program now.");
+		exit(ENOMEM);
+	}
 }
 
 /****
