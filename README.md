@@ -1,5 +1,5 @@
 # toy-c
-Short toy C projects, written by extending some university assignments. 
+Short toy C projects. 
 
 
 ### uniq.c && sort.c
