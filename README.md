@@ -4,6 +4,8 @@ Short toy C projects.
 
 ### uniq.c && sort.c
 
-Description: Short programs meant to mimick some of the same functionality of the \*nix sort and uniq utilities. 
+Short programs meant to mimick some of the same functionality of the \*nix sort and uniq utilities. 
 
-Planned updates: Migrate the common functionalities to a single source file, write a makefile. 
+### stack.c && stack.h
+
+An implementation of a stack in C, with a header stack.h providing the API and allowing a use of stack functionality with opaque pointers.
